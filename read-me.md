@@ -36,3 +36,11 @@ criar o nodemon.json para fazer o tsconfig-paths/register para usar path mapping
 próximos passos:
 npm i express joi pg http-status
 npm i -D @types/express @types/node @types/pg tsconfig-paths tsc-alias
+banco pg:
+CREATE TABLE "users" (
+	"userId" SERIAL PRIMARY KEY,
+	"name" TEXT,
+	"email" TEXT,
+	"password" INT
+);
+Criar todas as pastas de camadas, o próprio projeto é uma documentação básica de um simples CRUD usando ts
