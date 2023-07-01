@@ -32,7 +32,7 @@ export async function deleteUsers (req: Request, res: Response) {
 }
 
 export async function updateUsers (req: Request, res: Response) {
-  const user = req.body;
+  const user:User = req.body;
   try {
     updateUser(user);
     res.sendStatus(httpStatus.OK);
