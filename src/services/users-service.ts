@@ -1,4 +1,4 @@
-import { getUsers, createUser } from "../repositories/users-repository";
+import { getUsers, createUser, deleteUserr, updateUserr } from "../repositories/users-repository";
 import User from "../protocols/user-protocol";
 
 export async function getUserss() {
@@ -8,4 +8,14 @@ export async function getUserss() {
 export async function createUserr(user: User) {
 
     return await createUser(user);
+}
+
+export async function deleteUser(userId) {
+
+    return await deleteUserr(userId);
+}
+
+export async function updateUser(user) {
+
+    return await updateUserr(user);
 }

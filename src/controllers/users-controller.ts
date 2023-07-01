@@ -1,6 +1,6 @@
 import express, {Request, Response} from "express"
 import User from "../protocols/user-protocol";
-import { createUserr, getUserss } from "@/services/users-service";
+import { createUserr, getUserss, deleteUser, updateUser } from "@/services/users-service";
 import httpStatus from "http-status";
 
 export async function  createUsers(req: Request, res: Response) {
@@ -10,11 +10,34 @@ export async function  createUsers(req: Request, res: Response) {
         res.sendStatus(httpStatus.CREATED);
       } catch (error) {
         console.log(error);
-        res.sendStatus(httpStatus.CONFLICT);
+        res.sendStatus(httpStatus.BAD_REQUEST);
       }
 }
 
 export async function getUsers (req: Request, res: Response) {
     const users = await getUserss();
     res.send(users);
+}
+
+export async function deleteUsers (req: Request, res: Response) {
+    const {id} = req.params;
+    const userId: number = parseInt(id, 10)
+    try {
+      deleteUser(userId);
+      res.sendStatus(httpStatus.OK);
+    } catch (error) {
+      console.log(error);
+      res.sendStatus(httpStatus.BAD_REQUEST);
+    }
+}
+
+export async function updateUsers (req: Request, res: Response) {
+  const user = req.body;
+  try {
+    updateUser(user);
+    res.sendStatus(httpStatus.OK);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(httpStatus.BAD_REQUEST);
+  }
 }

@@ -1,7 +1,5 @@
 import express, {Request, Response, json} from "express"
-import User from "@/protocols/user-protocol";
 import httpStatus from "http-status";
-import { getUserss, createUserr } from "./services/users-service";
 import usersRouter from "./routers/users-router";
 
 const app = express();

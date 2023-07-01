@@ -6,3 +6,10 @@ email: Joi.string().email().required(),
 name: Joi.string().required(),
 password: Joi.string().required()
 })
+
+export const updateUserSchema = Joi.object<User>({
+    userId: Joi.number().required(),
+    email: Joi.string().email().required(),
+    name: Joi.string().required(),
+    password: Joi.string().required()
+    })

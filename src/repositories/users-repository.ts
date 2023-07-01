@@ -1,5 +1,6 @@
 import connection from "../database/database";
 import User from "../protocols/user-protocol";
+import UserId from "../protocols/userId-protocol";
 
 
 export async function getUsers() {
@@ -13,4 +14,19 @@ export async function createUser(user: User) {
     INSERT INTO users (name, email, password)
         VALUES ($1, $2, $3)
 `, [user.name, user.email, user.password]);
+  }
+
+export async function deleteUserr(userId) {
+    return await connection.query<UserId>(`
+    DELETE FROM users WHERE "userId" = $1
+`, [userId]);
+  }  
+
+  export async function updateUserr(user) {
+    console.log(user)
+    return  await connection.query(`
+    UPDATE users
+        SET "name" = $2, email = $3, password = $4
+            WHERE "userId" = $1
+    ;`, [user.userId, user.name, user.email, user.password])
   }

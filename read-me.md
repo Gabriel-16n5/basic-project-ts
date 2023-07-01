@@ -41,6 +41,6 @@ CREATE TABLE "users" (
 	"userId" SERIAL PRIMARY KEY,
 	"name" TEXT,
 	"email" TEXT,
-	"password" INT
+	"password" TETX
 );
 Criar todas as pastas de camadas, o próprio projeto é uma documentação básica de um simples CRUD usando ts
