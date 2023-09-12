@@ -2,7 +2,7 @@ type User = {
     userId: Number,
     name: String,
     email: String,
-    password: Number
+    password: String
 }
 
 export default User;
