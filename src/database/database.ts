@@ -1,13 +1,15 @@
-import pg from "pg";
+import pg from "pg"
+import dotenv from "dotenv"
+dotenv.config()
 
-const { Pool } = pg;
+const { Pool } = pg
 
-const connection = new Pool({
-    host: "localhost",
-    port: 5432,
-    user: "postgres",
-    password: "291999",
-    database: "basic"
-})
+const configDatabase = {
+  connectionString: process.env.DATABASE_URL,
+};
 
-export default connection;
+const connection = new Pool(configDatabase);
+
+export default connection
+
+console.log("banco conectado e rodando")

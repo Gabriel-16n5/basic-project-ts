@@ -7,8 +7,8 @@ app.use(json());
 app.use(usersRouter)
 
 app.get("/health", (req: Request, res: Response) => {
-    res.status(httpStatus.OK).send("To bem");
+    res.status(httpStatus.OK).send("Online!!!");
 })
 
 const port: Number = parseInt(process.env.PORT) || 5000;
-app.listen(port, () => console.log(`Server ta rodandinho na porta ${port}`));
+app.listen(port, () => console.log(`Server online e rodando na porta ${port}`));
