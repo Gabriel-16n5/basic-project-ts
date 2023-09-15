@@ -1,12 +1,11 @@
-import pg from "pg"
+import pg, { ClientConfig } from "pg"
 import dotenv from "dotenv"
 dotenv.config()
 
 const { Pool } = pg
 
-const configDatabase = {
-  connectionString: process.env.DATABASE_URL,
-  ssl: false
+const configDatabase:ClientConfig = {
+  connectionString: process.env.DATABASE_URL
 };
 
 const connection = new Pool(configDatabase);
