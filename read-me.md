@@ -49,7 +49,7 @@ CREATE TABLE "users" (
 	"userId" SERIAL PRIMARY KEY,
 	"name" TEXT,
 	"email" TEXT,
-	"password" TETX
+	"password" TEXT
 );
 </blockquote>
 </br>
@@ -78,6 +78,6 @@ CREATE TABLE "users" (
 </br>
 Para fazer o deploy no render:
 <ul>
-<li>Build Command: npm i && nom run build
+<li>Build Command: npm i && npm run build
 <li>Start Command: npm run start
 </ul>
