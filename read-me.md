@@ -62,7 +62,8 @@ CREATE TABLE "users" (
 }
 </blockquote>
 </br>
-<p>17 - Criar todas as pastas de camadas, o próprio projeto é uma documentação básica de um simples CRUD usando ts:
+<p> para fazer os throw de erros devo instalar: npm i express-async-errors e colocar o import no app logo após o express</p>
+<p>18 - Criar todas as pastas de camadas, o próprio projeto é uma documentação básica de um simples CRUD usando ts:
 <ul>
 <li>src: index.ts;
 <li>errors: para usar o throw e tirar os try caught do código;
