@@ -16,16 +16,23 @@ export async function createUser(user: User) {
 `, [user.name, user.email, user.password]);
   }
 
-export async function deleteUserr(userId:User) {
+export async function deleteUser(userId:number) {
     return await connection.query<UserId>(`
     DELETE FROM users WHERE "userId" = $1
 `, [userId]);
   }  
 
-  export async function updateUserr(user:User) {
+  export async function updateUser(user:User) {
     return  await connection.query(`
     UPDATE users
         SET "name" = $2, email = $3, password = $4
             WHERE "userId" = $1
     ;`, [user.userId, user.name, user.email, user.password])
+  }
+
+  export const usersRepository = {
+    getUsers,
+    createUser,
+    deleteUser,
+    updateUser
   }
