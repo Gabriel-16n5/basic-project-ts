@@ -62,7 +62,7 @@ CREATE TABLE "users" (
 }
 </blockquote>
 </br>
-<p> para fazer os throw de erros devo instalar: npm i express-async-errors e colocar o import no app logo após o express</p>
+<p>17 - para fazer os throw de erros devo instalar: npm i express-async-errors e colocar o import no app logo após o express</p>
 <p>18 - Criar todas as pastas de camadas, o próprio projeto é uma documentação básica de um simples CRUD usando ts:
 <ul>
 <li>src: index.ts;
