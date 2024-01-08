@@ -2,6 +2,7 @@ import express, {Request, Response, json} from "express";
 import 'express-async-errors';
 import httpStatus from "http-status";
 import usersRouter from "./routers/users-router";
+import jwt = require('jsonwebtoken');
 import { handleApplicationErrors } from './middlewares/error-handling-middleware';
 
 const app = express();

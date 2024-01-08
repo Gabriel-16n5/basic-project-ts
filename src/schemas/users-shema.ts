@@ -13,3 +13,8 @@ export const updateUserSchema = Joi.object<User>({
     name: Joi.string().required(),
     password: Joi.string().required()
     })
+
+    export const loginSchema = Joi.object<User>({
+        email: Joi.string().email().required(),
+        password: Joi.string().required()
+        })

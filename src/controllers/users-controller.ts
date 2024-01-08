@@ -3,10 +3,20 @@ import User from "../protocols/user-protocol";
 import { usersService } from "@/services/users-service";
 import httpStatus from "http-status";
 
-export async function  createUsers(req: Request, res: Response) {
-    const body = req.body as User
-        const result = await usersService.createUser(body);
+type UserId = Pick<User, 'userId'>;
+type SignUp = Omit<User, 'userId'>;
+type SignIn = Pick<User, 'email' | 'password'>;
+
+export async function  signUp(req: Request, res: Response) {
+    const body = req.body as SignUp
+        const result = await usersService.signUp(body);
         return res.sendStatus(httpStatus.CREATED)
+}
+
+export async function  signIn(req: Request, res: Response) {
+    const body = req.body as SignUp
+        const result = await usersService.signIn(body);
+        return res.sendStatus(httpStatus.OK)
 }
 
 export async function getUsers (req: Request, res: Response) {
@@ -14,10 +24,10 @@ export async function getUsers (req: Request, res: Response) {
     return res.status(httpStatus.OK).send(users);
 }
 
-export async function deleteUsers (req: Request, res: Response) {
-    const {id} = req.params;
-    const userId: number = parseInt(id, 10)
-    const result = usersService.deleteUser(userId);
+export async function deleteUsers(req: Request, res: Response) {
+    const { id } = req.params;
+    const userId: UserId = { userId: parseInt(id, 10) };
+    const result = usersService.deleteUser(userId[0]);
     return res.sendStatus(httpStatus.OK);
 }
 
@@ -26,3 +36,4 @@ export async function updateUsers (req: Request, res: Response) {
   const result = await usersService.updateUser(user);
   return res.sendStatus(httpStatus.OK);
 }
+

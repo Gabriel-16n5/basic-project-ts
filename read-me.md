@@ -77,6 +77,15 @@ CREATE TABLE "users" (
 <li>utils: para funções úteis que não encaixam nos acima;
 </ul>
 </br>
+<p> 19 - criar a autenticação do usuário e login usando jwt, para isso segue os seguintes passos:
+<ul>
+<li>npm i jsonwebtoken @types/jsonwebtoken
+<li>importar ele: import jwt = require('jsonwebtoken');
+<li>
+<li>
+<li>
+<li>
+</ul>
 Para fazer o deploy no render:
 <ul>
 <li>Build Command: npm i && npm run build
