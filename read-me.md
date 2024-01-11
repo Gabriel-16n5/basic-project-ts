@@ -40,8 +40,8 @@
   </blockquote>
   <br/>
 <p>11 - rodar npx tsc (e sempre rodar quando quiser usar o npm run start, para ser feita a build em js);</br>
-<p>12 - npm i express joi pg http-status dotenv
-<p>13 - npm i -D @types/express @types/node @types/pg tsconfig-paths tsc-alias @types/dotenv
+<p>12 - npm i express joi pg http-status dotenv bcrypt
+<p>13 - npm i -D @types/express @types/bcrypt @types/node @types/pg tsconfig-paths tsc-alias @types/dotenv
 <p>14 - criar o .env, tem exemplo nesse repo
 <p>15 - banco pg simples para criação de um CRUD:
 <blockquote>
@@ -50,6 +50,14 @@ CREATE TABLE "users" (
 	"name" TEXT,
 	"email" TEXT,
 	"password" TEXT
+);
+CREATE TABLE "session" (
+  "sessionId" SERIAL PRIMARY KEY,
+  "token" TEXT NOT NULL,
+  "userId" INT NOT NULL,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY ("userId") REFERENCES "users"("userId")
 );
 </blockquote>
 </br>

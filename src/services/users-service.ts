@@ -1,13 +1,19 @@
 import { usersRepository } from "../repositories/users-repository";
 import User from "../protocols/user-protocol";
 import { notFoundError, invalidError } from "../errors";
+import bcrypt from 'bcrypt';
 
 type UserId = Pick<User, 'userId'>;
 type SignUp = Omit<User, 'userId'>;
 type SignIn = Pick<User, 'email' | 'password'>;
 
 export async function signUp(user:SignUp) {
-    const userCreated = await usersRepository.signUp(user);
+    const hashedPassword = await bcrypt.hash(user.password, 12);
+    const userCreated = await usersRepository.signUp({
+        email: user.email,
+        password: hashedPassword,
+        name: user.name
+    });
     if(!userCreated) throw invalidError("we can't create this user")
     return userCreated;
 }

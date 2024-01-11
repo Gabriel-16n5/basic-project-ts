@@ -1,8 +1,8 @@
 type User = {
-    userId: Number,
-    name: String,
-    email: String,
-    password: String
+    userId: number,
+    name: string,
+    email: string,
+    password: string
 }
 
 export default User;

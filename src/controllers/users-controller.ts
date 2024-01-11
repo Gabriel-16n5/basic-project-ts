@@ -2,6 +2,7 @@ import express, {Request, Response} from "express"
 import User from "../protocols/user-protocol";
 import { usersService } from "@/services/users-service";
 import httpStatus from "http-status";
+import { authenticationService } from "../services/authentication-service";
 
 type UserId = Pick<User, 'userId'>;
 type SignUp = Omit<User, 'userId'>;
@@ -14,9 +15,9 @@ export async function  signUp(req: Request, res: Response) {
 }
 
 export async function  signIn(req: Request, res: Response) {
-    const body = req.body as SignUp
-        const result = await usersService.signIn(body);
-        return res.sendStatus(httpStatus.OK)
+    const{email, password} = req.body as SignIn
+        const result = await authenticationService.signIn(email, password);
+        return res.send(result).status(httpStatus.OK);
 }
 
 export async function getUsers (req: Request, res: Response) {

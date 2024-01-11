@@ -27,6 +27,12 @@ export async function getUsers() {
     return listUsers;
   }
 
+  export async function getUserByEmail(email:string) {
+    const result = await connection.query<User>(`SELECT * FROM users 
+    WHERE email = $1`, [email]);
+    return result.rows;
+  }
+
 export async function deleteUser(userId:UserId) {
     return await connection.query<UserId>(`
     DELETE FROM users WHERE "userId" = $1
@@ -46,5 +52,6 @@ export async function deleteUser(userId:UserId) {
     signUp,
     deleteUser,
     updateUser,
-    signIn
+    signIn,
+    getUserByEmail
   }
