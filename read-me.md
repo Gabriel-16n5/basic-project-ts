@@ -51,6 +51,7 @@ CREATE TABLE "users" (
 	"email" TEXT,
 	"password" TEXT
 );
+<blockquote>
 CREATE TABLE "session" (
   "sessionId" SERIAL PRIMARY KEY,
   "token" TEXT NOT NULL,
